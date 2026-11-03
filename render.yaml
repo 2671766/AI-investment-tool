@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: aidsm
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health

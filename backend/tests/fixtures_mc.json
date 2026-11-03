@@ -1,0 +1,2854 @@
+{
+ "case": {
+  "schema": "aidsm-case/1",
+  "meta": {
+   "case_id": "CASE-001",
+   "case_name": "Research benchmark verification case",
+   "assessment_date": "2026-09-23",
+   "bank_context": "Representative large South African bank",
+   "prepared_by": "G. Rohana (2671766)",
+   "status": "Draft",
+   "notes": "Locked research benchmark alternatives are protected; copy an alternative to experiment."
+  },
+  "finance": {
+   "horizon": 3,
+   "rate": 0.1,
+   "ann_years": 3
+  },
+  "baseline": {
+   "fraud_exposure": 300,
+   "case_cost": 45,
+   "fp_cost": 15,
+   "alerts": null,
+   "cases": null,
+   "fp_rate": null,
+   "analyst_hours": null,
+   "analyst_cost": null,
+   "resolution_time": null,
+   "loss_per_case": null
+  },
+  "risk_config": {
+   "benchmark_weights": [
+    0.2,
+    0.2,
+    0.15,
+    0.15,
+    0.1,
+    0.1,
+    0.1
+   ],
+   "benchmark_lambda": 0.4,
+   "case_weights": [
+    0.2,
+    0.2,
+    0.15,
+    0.15,
+    0.1,
+    0.1,
+    0.1
+   ],
+   "case_lambda": 0.4,
+   "case_lambda_rationale": ""
+  },
+  "alternatives": [
+   {
+    "id": "RES-MOD",
+    "name": "Research Moderate AI",
+    "type": "Research Benchmark",
+    "active": true,
+    "description": "Partial AI adoption supporting alert prioritisation, analyst decision-making and anomaly detection, with human oversight retained.",
+    "adoption_depth": "Moderate",
+    "workflow_areas": "Alert generation; triage; analyst review",
+    "human_oversight": "Human decision retained",
+    "start_year": 0,
+    "notes": "Locked research benchmark - do not edit.",
+    "benefits": {
+     "fraud_method": "Driver-based %",
+     "fraud_red": 0.1,
+     "fraud_direct": null,
+     "case_method": "Driver-based %",
+     "case_red": 0.12,
+     "work_red": null,
+     "case_direct": null,
+     "fp_method": "Driver-based %",
+     "fp_red": 0.15,
+     "fp_event_cost": null,
+     "fp_direct": null,
+     "other_desc": "",
+     "other_direct": null,
+     "other_dup": "No",
+     "kpi_resolution": null,
+     "kpi_prioritisation": null,
+     "kpi_efficiency": null
+    },
+    "ramp": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "costs": {
+     "initial": {
+      "implement": 45,
+      "integrate": null,
+      "train": null,
+      "data": null,
+      "governance": null,
+      "other": null
+     },
+     "recurring": {
+      "vendor": 8,
+      "data": 3,
+      "train": 1.5,
+      "maintenance": null,
+      "monitoring": null,
+      "governance": 3,
+      "other": null
+     },
+     "year_specific": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "residual": 0.0,
+     "residual_basis": ""
+    },
+    "risk": {
+     "scores": [
+      2.5,
+      2.5,
+      2.5,
+      3,
+      2.5,
+      2,
+      2.5
+     ],
+     "critical": [
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue"
+     ],
+     "rationale": [
+      "Partial adoption with human oversight retained; alerts remain reviewable.",
+      "Established supervised techniques; periodic revalidation required.",
+      "Existing fraud data assets reused; quality controls in place.",
+      "Vendor platform dependence for core detection services.",
+      "Additional data flows increase exposure but controls are established.",
+      "Human decision retained, limiting incorrect customer interventions.",
+      "Residual accountability exposure after budgeted governance."
+     ],
+     "confidence": "Low",
+     "mitigation": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "review_date": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    },
+    "scenarios": {
+     "fraud_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "case_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "fp_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "ramp_mult": {
+      "Downside": 0.9,
+      "Base": 1,
+      "Upside": 1
+     },
+     "init_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "rec_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "risk_index": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     }
+    },
+    "plausible": {
+     "fraud_lo": null,
+     "fraud_hi": null,
+     "cost_lo": null,
+     "cost_hi": null,
+     "life_lo": null,
+     "life_hi": null,
+     "life_basis": ""
+    },
+    "pilot_measurable": "Yes"
+   },
+   {
+    "id": "RES-ADV",
+    "name": "Research Advanced AI",
+    "type": "Research Benchmark",
+    "active": true,
+    "description": "Deeper AI integration across detection and case handling with greater automation of triage and case enrichment.",
+    "adoption_depth": "Advanced",
+    "workflow_areas": "Monitoring; alert generation; triage; case enrichment; investigation",
+    "human_oversight": "Human decision retained",
+    "start_year": 0,
+    "notes": "Locked research benchmark - do not edit.",
+    "benefits": {
+     "fraud_method": "Driver-based %",
+     "fraud_red": 0.2,
+     "fraud_direct": null,
+     "case_method": "Driver-based %",
+     "case_red": 0.25,
+     "work_red": null,
+     "case_direct": null,
+     "fp_method": "Driver-based %",
+     "fp_red": 0.3,
+     "fp_event_cost": null,
+     "fp_direct": null,
+     "other_desc": "",
+     "other_direct": null,
+     "other_dup": "No",
+     "kpi_resolution": null,
+     "kpi_prioritisation": null,
+     "kpi_efficiency": null
+    },
+    "ramp": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "costs": {
+     "initial": {
+      "implement": 120,
+      "integrate": null,
+      "train": null,
+      "data": null,
+      "governance": null,
+      "other": null
+     },
+     "recurring": {
+      "vendor": 14,
+      "data": 6,
+      "train": 3,
+      "maintenance": null,
+      "monitoring": null,
+      "governance": 6,
+      "other": null
+     },
+     "year_specific": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "residual": 0.0,
+     "residual_basis": ""
+    },
+    "risk": {
+     "scores": [
+      3.5,
+      3.5,
+      3,
+      4,
+      3.5,
+      3,
+      3.5
+     ],
+     "critical": [
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue",
+      "No critical issue"
+     ],
+     "rationale": [
+      "Deeper automation reduces the transparency of alert decisions.",
+      "Greater model complexity and higher revalidation demand.",
+      "Wider data use increases quality and lineage exposure.",
+      "Heavier reliance on external suppliers and services.",
+      "Larger attack surface across integrated systems.",
+      "More automated interventions reaching customers.",
+      "Higher residual regulatory and audit exposure."
+     ],
+     "confidence": "Low",
+     "mitigation": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "review_date": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    },
+    "scenarios": {
+     "fraud_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "case_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "fp_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "ramp_mult": {
+      "Downside": 0.9,
+      "Base": 1,
+      "Upside": 1
+     },
+     "init_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "rec_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "risk_index": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     }
+    },
+    "plausible": {
+     "fraud_lo": null,
+     "fraud_hi": null,
+     "cost_lo": null,
+     "cost_hi": null,
+     "life_lo": null,
+     "life_hi": null,
+     "life_basis": ""
+    },
+    "pilot_measurable": "Yes"
+   },
+   {
+    "id": "CUS-01",
+    "name": "Custom Option 1",
+    "type": "Custom",
+    "active": false,
+    "description": "",
+    "adoption_depth": "",
+    "workflow_areas": "",
+    "human_oversight": "",
+    "start_year": 0,
+    "notes": "",
+    "benefits": {
+     "fraud_method": "Driver-based %",
+     "fraud_red": null,
+     "fraud_direct": null,
+     "case_method": "Driver-based %",
+     "case_red": null,
+     "work_red": null,
+     "case_direct": null,
+     "fp_method": "Driver-based %",
+     "fp_red": null,
+     "fp_event_cost": null,
+     "fp_direct": null,
+     "other_desc": "",
+     "other_direct": null,
+     "other_dup": "No",
+     "kpi_resolution": null,
+     "kpi_prioritisation": null,
+     "kpi_efficiency": null
+    },
+    "ramp": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "costs": {
+     "initial": {
+      "implement": null,
+      "integrate": null,
+      "train": null,
+      "data": null,
+      "governance": null,
+      "other": null
+     },
+     "recurring": {
+      "vendor": null,
+      "data": null,
+      "train": null,
+      "maintenance": null,
+      "monitoring": null,
+      "governance": null,
+      "other": null
+     },
+     "year_specific": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "residual": 0.0,
+     "residual_basis": ""
+    },
+    "risk": {
+     "scores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "critical": [
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed"
+     ],
+     "rationale": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "confidence": "",
+     "mitigation": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "review_date": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    },
+    "scenarios": {
+     "fraud_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "case_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "fp_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "ramp_mult": {
+      "Downside": 0.9,
+      "Base": 1,
+      "Upside": 1
+     },
+     "init_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "rec_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "risk_index": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     }
+    },
+    "plausible": {
+     "fraud_lo": null,
+     "fraud_hi": null,
+     "cost_lo": null,
+     "cost_hi": null,
+     "life_lo": null,
+     "life_hi": null,
+     "life_basis": ""
+    },
+    "pilot_measurable": "Yes"
+   },
+   {
+    "id": "CUS-02",
+    "name": "Custom Option 2",
+    "type": "Custom",
+    "active": false,
+    "description": "",
+    "adoption_depth": "",
+    "workflow_areas": "",
+    "human_oversight": "",
+    "start_year": 0,
+    "notes": "",
+    "benefits": {
+     "fraud_method": "Driver-based %",
+     "fraud_red": null,
+     "fraud_direct": null,
+     "case_method": "Driver-based %",
+     "case_red": null,
+     "work_red": null,
+     "case_direct": null,
+     "fp_method": "Driver-based %",
+     "fp_red": null,
+     "fp_event_cost": null,
+     "fp_direct": null,
+     "other_desc": "",
+     "other_direct": null,
+     "other_dup": "No",
+     "kpi_resolution": null,
+     "kpi_prioritisation": null,
+     "kpi_efficiency": null
+    },
+    "ramp": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "costs": {
+     "initial": {
+      "implement": null,
+      "integrate": null,
+      "train": null,
+      "data": null,
+      "governance": null,
+      "other": null
+     },
+     "recurring": {
+      "vendor": null,
+      "data": null,
+      "train": null,
+      "maintenance": null,
+      "monitoring": null,
+      "governance": null,
+      "other": null
+     },
+     "year_specific": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "residual": 0.0,
+     "residual_basis": ""
+    },
+    "risk": {
+     "scores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "critical": [
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed"
+     ],
+     "rationale": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "confidence": "",
+     "mitigation": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "review_date": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    },
+    "scenarios": {
+     "fraud_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "case_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "fp_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "ramp_mult": {
+      "Downside": 0.9,
+      "Base": 1,
+      "Upside": 1
+     },
+     "init_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "rec_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "risk_index": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     }
+    },
+    "plausible": {
+     "fraud_lo": null,
+     "fraud_hi": null,
+     "cost_lo": null,
+     "cost_hi": null,
+     "life_lo": null,
+     "life_hi": null,
+     "life_basis": ""
+    },
+    "pilot_measurable": "Yes"
+   },
+   {
+    "id": "CUS-03",
+    "name": "Custom Option 3",
+    "type": "Custom",
+    "active": false,
+    "description": "",
+    "adoption_depth": "",
+    "workflow_areas": "",
+    "human_oversight": "",
+    "start_year": 0,
+    "notes": "",
+    "benefits": {
+     "fraud_method": "Driver-based %",
+     "fraud_red": null,
+     "fraud_direct": null,
+     "case_method": "Driver-based %",
+     "case_red": null,
+     "work_red": null,
+     "case_direct": null,
+     "fp_method": "Driver-based %",
+     "fp_red": null,
+     "fp_event_cost": null,
+     "fp_direct": null,
+     "other_desc": "",
+     "other_direct": null,
+     "other_dup": "No",
+     "kpi_resolution": null,
+     "kpi_prioritisation": null,
+     "kpi_efficiency": null
+    },
+    "ramp": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "costs": {
+     "initial": {
+      "implement": null,
+      "integrate": null,
+      "train": null,
+      "data": null,
+      "governance": null,
+      "other": null
+     },
+     "recurring": {
+      "vendor": null,
+      "data": null,
+      "train": null,
+      "maintenance": null,
+      "monitoring": null,
+      "governance": null,
+      "other": null
+     },
+     "year_specific": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "residual": 0.0,
+     "residual_basis": ""
+    },
+    "risk": {
+     "scores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "critical": [
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed",
+      "Not assessed"
+     ],
+     "rationale": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "confidence": "",
+     "mitigation": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "review_date": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    },
+    "scenarios": {
+     "fraud_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "case_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "fp_red": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "ramp_mult": {
+      "Downside": 0.9,
+      "Base": 1,
+      "Upside": 1
+     },
+     "init_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "rec_cost": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     },
+     "risk_index": {
+      "Downside": null,
+      "Base": null,
+      "Upside": null
+     }
+    },
+    "plausible": {
+     "fraud_lo": null,
+     "fraud_hi": null,
+     "cost_lo": null,
+     "cost_hi": null,
+     "life_lo": null,
+     "life_hi": null,
+     "life_basis": ""
+    },
+    "pilot_measurable": "Yes"
+   }
+  ],
+  "evidence": [
+   {
+    "variable_id": "BL-FRAUD-EXP",
+    "alternative_id": "CASE",
+    "variable_name": "Annual addressable fraud-loss exposure",
+    "value": 300,
+    "unit": "R m/year",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.3; SABRIC/BASA sector losses and major-bank share of sector assets",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Derived from sector financial-crime losses and the major banks' 83% share of sector assets, with an assumed addressable share.",
+    "notes": "Benchmark assumption, not a bank-specific measurement."
+   },
+   {
+    "variable_id": "BL-CASE-COST",
+    "alternative_id": "CASE",
+    "variable_name": "Annual fraud case-handling operating cost",
+    "value": 45,
+    "unit": "R m/year",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.3 (15% of addressable exposure)",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Placeholder assumption; public sources do not report this cost for South African banks.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "BL-FP-COST",
+    "alternative_id": "CASE",
+    "variable_name": "Annual false-positive / customer-friction cost",
+    "value": 15,
+    "unit": "R m/year",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.3 (5% of addressable exposure)",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Placeholder assumption; customer-side effects only, analyst time sits in case-handling cost.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "BEN-FRAUD-RED",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Fraud-loss reduction",
+    "value": 0.1,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1; set below reported supplier figures",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Set below the supplier-reported detection improvements referenced in the research.",
+    "notes": "Plausible test range 8%-12%."
+   },
+   {
+    "variable_id": "BEN-FRAUD-RED",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Fraud-loss reduction",
+    "value": 0.2,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2; equal to Mastercard's reported average detection improvement",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Equal to, not below, the supplier figure and therefore an optimistic value.",
+    "notes": "Plausible test range 16%-24%."
+   },
+   {
+    "variable_id": "CST-IMPLEMENT",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Initial implementation cost",
+    "value": 45,
+    "unit": "R m",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Scenario assumption for a moderate adoption programme.",
+    "notes": "Plausible test range R36m-R54m."
+   },
+   {
+    "variable_id": "CST-IMPLEMENT",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Initial implementation cost",
+    "value": 120,
+    "unit": "R m",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Scenario assumption for an advanced adoption programme.",
+    "notes": "Plausible test range R96m-R144m."
+   },
+   {
+    "variable_id": "FIN-RATE",
+    "alternative_id": "CASE",
+    "variable_name": "Discount / hurdle rate",
+    "value": 0.1,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.9.4 illustrative rate",
+    "owner": "Finance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Illustrative rate representing a bank's required return; replace with the bank's hurdle rate.",
+    "notes": "Deterministic input, not simulated."
+   },
+   {
+    "variable_id": "BEN-CASE-RED",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Case-handling cost reduction",
+    "value": 0.12,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Judgement-based efficiency assumption; no South African benchmark is published.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "BEN-CASE-RED",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Case-handling cost reduction",
+    "value": 0.25,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Optimistic efficiency assumption for deeper automation.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "BEN-FP-RED",
+    "alternative_id": "RES-MOD",
+    "variable_name": "False-positive / customer-friction reduction",
+    "value": 0.15,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Judgement-based assumption on customer-side friction.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "BEN-FP-RED",
+    "alternative_id": "RES-ADV",
+    "variable_name": "False-positive / customer-friction reduction",
+    "value": 0.3,
+    "unit": "%",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Judgement-based assumption on customer-side friction.",
+    "notes": "Tested in sensitivity analysis."
+   },
+   {
+    "variable_id": "CST-INIT-TOTAL",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Total initial cost",
+    "value": 45,
+    "unit": "R m",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Scenario assumption for a moderate adoption programme.",
+    "notes": "Same figure as CST-IMPLEMENT for the benchmarks."
+   },
+   {
+    "variable_id": "CST-INIT-TOTAL",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Total initial cost",
+    "value": 120,
+    "unit": "R m",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Scenario assumption for an advanced adoption programme.",
+    "notes": "Same figure as CST-IMPLEMENT for the benchmarks."
+   },
+   {
+    "variable_id": "CST-REC-TOTAL",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Total recurring annual cost",
+    "value": 15.5,
+    "unit": "R m/year",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.1 (vendor, data, training, governance)",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Built from the four recurring lines defined in the research.",
+    "notes": "Training stays recurring for the benchmarks."
+   },
+   {
+    "variable_id": "CST-REC-TOTAL",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Total recurring annual cost",
+    "value": 29,
+    "unit": "R m/year",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.6.2 (vendor, data, training, governance)",
+    "owner": "Technology / IT",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Built from the four recurring lines defined in the research.",
+    "notes": "Training stays recurring for the benchmarks."
+   },
+   {
+    "variable_id": "RSK-RI",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Risk index",
+    "value": 0.505,
+    "unit": "Ratio",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk scoring",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Derived from judgement-based category scores.",
+    "notes": "Individual scores are sensitivity-tested."
+   },
+   {
+    "variable_id": "RSK-RI",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Risk index",
+    "value": 0.69,
+    "unit": "Ratio",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk scoring",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Derived from judgement-based category scores.",
+    "notes": "Individual scores are sensitivity-tested."
+   },
+   {
+    "variable_id": "BEN-RAMP-MULT",
+    "alternative_id": "CASE",
+    "variable_name": "Benefit ramp realisation",
+    "value": 1,
+    "unit": "Ratio",
+    "source_type": "Research benchmark",
+    "source": "Research Chapter 4 - no ramp-up was assumed",
+    "owner": "Fraud operations",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "The research assumed full benefit realisation from Year 1.",
+    "notes": "Custom cases should enter a staged ramp."
+   },
+   {
+    "variable_id": "FIN-HORIZON",
+    "alternative_id": "CASE",
+    "variable_name": "Evaluation horizon",
+    "value": 3,
+    "unit": "Years",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.9.4 base evaluation period",
+    "owner": "Finance",
+    "date": "2026-09-17",
+    "confidence": "Medium",
+    "rationale": "Three years is the research base period; 5 and 7 years were tested.",
+    "notes": "Change for a real case."
+   },
+   {
+    "variable_id": "RSK-LAMBDA",
+    "alternative_id": "CASE",
+    "variable_name": "Risk penalty coefficient (lambda)",
+    "value": 0.4,
+    "unit": "Ratio",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Judgement-based research assumption; the research showed the verdict is sensitive to it.",
+    "notes": "Sensitivity-tested in Stage B."
+   },
+   {
+    "variable_id": "RSK-EXP",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Explainability risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Partial adoption keeps alerts reviewable; deeper automation reduces transparency.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-EXP",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Explainability risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Partial adoption keeps alerts reviewable; deeper automation reduces transparency.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-MOD",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Model risk risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Supervised techniques with periodic revalidation; complexity rises with adoption depth.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-MOD",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Model risk risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Supervised techniques with periodic revalidation; complexity rises with adoption depth.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-DAT",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Data quality risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Existing fraud data assets reused; wider data use increases lineage exposure.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-DAT",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Data quality risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Existing fraud data assets reused; wider data use increases lineage exposure.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-TPD",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Third-party dependence risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Vendor platform dependence for core detection services.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-TPD",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Third-party dependence risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Vendor platform dependence for core detection services.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-CYB",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Cybersecurity risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Additional data flows and integration widen the attack surface.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-CYB",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Cybersecurity risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Additional data flows and integration widen the attack surface.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-CUS",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Customer impact risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Human decision retained, limiting incorrect customer interventions.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-CUS",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Customer impact risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Human decision retained, limiting incorrect customer interventions.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-GOV",
+    "alternative_id": "RES-MOD",
+    "variable_name": "Governance burden risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Residual accountability exposure after budgeted governance spend.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   },
+   {
+    "variable_id": "RSK-GOV",
+    "alternative_id": "RES-ADV",
+    "variable_name": "Governance burden risk score",
+    "value": null,
+    "unit": "Score 1-5",
+    "source_type": "Research benchmark",
+    "source": "Research Section 4.8 risk assessment",
+    "owner": "Risk / governance",
+    "date": "2026-09-17",
+    "confidence": "Low",
+    "rationale": "Residual accountability exposure after budgeted governance spend.",
+    "notes": "Judgement-based score; tested individually on 09_Sensitivity."
+   }
+  ],
+  "sensitivity": {
+   "alternative": "RES-MOD",
+   "variable": "Fraud-loss reduction",
+   "mode": "Relative (% of base)",
+   "lower": 0.8,
+   "upper": 1.2,
+   "metric": "Risk-adjusted NPV"
+  },
+  "comparison": {
+   "a": "RES-MOD",
+   "b": "RES-ADV"
+  },
+  "dashboard": {
+   "alternative": "RES-MOD"
+  },
+  "monte_carlo": {
+   "alternative": "RES-MOD",
+   "iterations": 25000,
+   "seed": 2026,
+   "inputs": {
+    "RES-MOD": [
+     {
+      "variable": "BEN-FRAUD-RED",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-VENDOR",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-MAINT-MON",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-CASE-RED",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-FP-RED",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-RAMP-MULT",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-INIT-TOTAL",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-REC-TOTAL",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BL-FRAUD-EXP",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "RSK-LAMBDA",
+      "enabled": "Yes",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     }
+    ],
+    "RES-ADV": [
+     {
+      "variable": "BEN-FRAUD-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-VENDOR",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-MAINT-MON",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-CASE-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-FP-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-RAMP-MULT",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-INIT-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-REC-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BL-FRAUD-EXP",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "RSK-LAMBDA",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     }
+    ],
+    "CUS-01": [
+     {
+      "variable": "BEN-FRAUD-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-VENDOR",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-MAINT-MON",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-CASE-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-FP-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-RAMP-MULT",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-INIT-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-REC-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BL-FRAUD-EXP",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "RSK-LAMBDA",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     }
+    ],
+    "CUS-02": [
+     {
+      "variable": "BEN-FRAUD-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-VENDOR",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-MAINT-MON",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-CASE-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-FP-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-RAMP-MULT",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-INIT-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-REC-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BL-FRAUD-EXP",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "RSK-LAMBDA",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     }
+    ],
+    "CUS-03": [
+     {
+      "variable": "BEN-FRAUD-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-VENDOR",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-MAINT-MON",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-CASE-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-FP-RED",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BEN-RAMP-MULT",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-INIT-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "CST-REC-TOTAL",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "BL-FRAUD-EXP",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     },
+     {
+      "variable": "RSK-LAMBDA",
+      "enabled": "No",
+      "distribution": "Triangular",
+      "min": null,
+      "mode": null,
+      "max": null,
+      "sd": null
+     }
+    ]
+   }
+  },
+  "monitoring": {
+   "alternative": "RES-MOD",
+   "approval_date": "2026-09-30",
+   "review_year": 1,
+   "approved_rate": 0.1,
+   "approved_horizon": 3,
+   "approved_level": 3,
+   "approved_benefits": {
+    "fraud": [
+     0,
+     30,
+     30,
+     30,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "case": [
+     0,
+     5.4,
+     5.4,
+     5.4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fp": [
+     0,
+     2.25,
+     2.25,
+     2.25,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "other": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "approved_costs": {
+    "impl": [
+     45,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "vendor": [
+     0,
+     8,
+     8,
+     8,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "data": [
+     0,
+     3,
+     3,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "train": [
+     0,
+     1.5,
+     1.5,
+     1.5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "gov": [
+     0,
+     3,
+     3,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "other": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "realised_benefits": {
+    "fraud": [
+     0,
+     24,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "case": [
+     0,
+     5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fp": [
+     0,
+     1.5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "other": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "realised_costs": {
+    "impl": [
+     47,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "vendor": [
+     0,
+     8.5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "data": [
+     0,
+     3.2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "train": [
+     0,
+     1.5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "gov": [
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "other": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "forecast_benefits": {
+    "fraud": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "case": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "fp": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "other": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "forecast_costs": {
+    "impl": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "vendor": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "data": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "train": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "gov": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "other": [
+     0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "kpis": {
+    "Alerts per year": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "False-positive rate": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "Analyst hours": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "Case volume": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "Average resolution time": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "current_scores": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "current_critical": [
+    "No critical issue",
+    "No critical issue",
+    "No critical issue",
+    "No critical issue",
+    "No critical issue",
+    "No critical issue",
+    "No critical issue"
+   ],
+   "risk_notes": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "scenario_factors": {
+    "Downside": [
+     0.8,
+     1.15
+    ],
+    "Base": [
+     1,
+     1
+    ],
+    "Upside": [
+     1.2,
+     0.9
+    ]
+   },
+   "plausible_multiple": 1.2,
+   "multiple_basis": "Approved upside case and pilot evidence to date",
+   "evidence_status": [
+    "Unchanged since approval",
+    "Unchanged since approval",
+    "Unchanged since approval"
+   ],
+   "evidence_notes": [
+    "",
+    "",
+    ""
+   ],
+   "pilot_measurable": "Yes",
+   "variance_threshold": 0.1,
+   "log": []
+  },
+  "settings": {
+   "workbook_compatibility": true
+  }
+ },
+ "stored": {
+  "status": "Run complete",
+  "alternative": "RES-MOD",
+  "iterations": 25000,
+  "seed": 2026,
+  "input_hash": "4a59fb0b93360c11575a03125df35e62b049a4fde460dea71c23729ab2af9f73",
+  "engine": "imported from workbook (monte_carlo_engine.py v2.2)",
+  "timestamp": "2026-10-27 07:33:53 UTC",
+  "summary": {
+   "NPV": {
+    "mean": 10.087622,
+    "median": 9.912559,
+    "std": 9.930671,
+    "p5": -5.965173,
+    "p25": 3.143103,
+    "p75": 16.833424,
+    "p95": 26.912316
+   },
+   "Risk-adjusted NPV": {
+    "mean": -8.799498,
+    "median": -8.967068,
+    "std": 8.588308,
+    "p5": -22.724077,
+    "p25": -14.759101,
+    "p75": -3.073228,
+    "p95": 5.789999
+   },
+   "Lifecycle CBR": {
+    "mean": 1.124605,
+    "median": 1.118291,
+    "std": 0.123345,
+    "p5": 0.932105,
+    "p25": 1.03697,
+    "p75": 1.205694,
+    "p95": 1.338962
+   },
+   "Risk-adjusted CBR": {
+    "mean": 0.897634,
+    "median": 0.892436,
+    "std": 0.100239,
+    "p5": 0.740562,
+    "p25": 0.826722,
+    "p75": 0.962174,
+    "p95": 1.073606
+   }
+  },
+  "probabilities": {
+   "npv_pos": 0.84352,
+   "ranpv_pos": 0.15708,
+   "cbr_gt1": 0.84352,
+   "racbr_gt1": 0.15708
+  },
+  "drivers": [
+   {
+    "rank": 1,
+    "variable_id": "BEN-FRAUD-RED",
+    "variable": "Fraud-loss reduction",
+    "rho": 0.552275,
+    "abs_rho": 0.552275
+   },
+   {
+    "rank": 2,
+    "variable_id": "BL-FRAUD-EXP",
+    "variable": "Baseline fraud-loss exposure",
+    "rho": 0.548989,
+    "abs_rho": 0.548989
+   },
+   {
+    "rank": 3,
+    "variable_id": "CST-INIT-TOTAL",
+    "variable": "Initial implementation cost",
+    "rho": -0.4127,
+    "abs_rho": 0.4127
+   },
+   {
+    "rank": 4,
+    "variable_id": "CST-REC-TOTAL",
+    "variable": "Recurring annual cost",
+    "rho": -0.357281,
+    "abs_rho": 0.357281
+   },
+   {
+    "rank": 5,
+    "variable_id": "RSK-LAMBDA",
+    "variable": "Risk penalty coefficient (lambda)",
+    "rho": -0.172816,
+    "abs_rho": 0.172816
+   },
+   {
+    "rank": 6,
+    "variable_id": "BEN-CASE-RED",
+    "variable": "Case-handling reduction",
+    "rho": 0.108511,
+    "abs_rho": 0.108511
+   },
+   {
+    "rank": 7,
+    "variable_id": "BEN-FP-RED",
+    "variable": "False-positive reduction",
+    "rho": 0.041247,
+    "abs_rho": 0.041247
+   }
+  ],
+  "histogram": [
+   {
+    "lo": -36.719,
+    "hi": -33.6678,
+    "count": 19
+   },
+   {
+    "lo": -33.6678,
+    "hi": -30.6166,
+    "count": 63
+   },
+   {
+    "lo": -30.6166,
+    "hi": -27.5654,
+    "count": 206
+   },
+   {
+    "lo": -27.5654,
+    "hi": -24.5142,
+    "count": 466
+   },
+   {
+    "lo": -24.5142,
+    "hi": -21.4631,
+    "count": 992
+   },
+   {
+    "lo": -21.4631,
+    "hi": -18.4119,
+    "count": 1525
+   },
+   {
+    "lo": -18.4119,
+    "hi": -15.3607,
+    "count": 2439
+   },
+   {
+    "lo": -15.3607,
+    "hi": -12.3095,
+    "count": 3003
+   },
+   {
+    "lo": -12.3095,
+    "hi": -9.2583,
+    "count": 3443
+   },
+   {
+    "lo": -9.2583,
+    "hi": -6.2072,
+    "count": 3467
+   },
+   {
+    "lo": -6.2072,
+    "hi": -3.156,
+    "count": 3051
+   },
+   {
+    "lo": -3.156,
+    "hi": -0.1048,
+    "count": 2319
+   },
+   {
+    "lo": -0.1048,
+    "hi": 2.9464,
+    "count": 1723
+   },
+   {
+    "lo": 2.9464,
+    "hi": 5.9976,
+    "count": 1104
+   },
+   {
+    "lo": 5.9976,
+    "hi": 9.0488,
+    "count": 667
+   },
+   {
+    "lo": 9.0488,
+    "hi": 12.0999,
+    "count": 297
+   },
+   {
+    "lo": 12.0999,
+    "hi": 15.1511,
+    "count": 151
+   },
+   {
+    "lo": 15.1511,
+    "hi": 18.2023,
+    "count": 49
+   },
+   {
+    "lo": 18.2023,
+    "hi": 21.2535,
+    "count": 14
+   },
+   {
+    "lo": 21.2535,
+    "hi": 24.3047,
+    "count": 2
+   }
+  ],
+  "cdf": [],
+  "imported": true
+ }
+}
