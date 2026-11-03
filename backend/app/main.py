@@ -134,7 +134,7 @@ if FRONTEND.exists():
 
     @app.get("/{path:path}", include_in_schema=False)
     def spa(path: str):
-        target = FRONTEND / path
-        if path and target.is_file():
+        target = (FRONTEND / path).resolve()
+        if path and target.is_relative_to(FRONTEND.resolve()) and target.is_file():   # no ../ escapes
             return FileResponse(target)
         return FileResponse(FRONTEND / "index.html")

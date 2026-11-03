@@ -272,6 +272,8 @@ def _put(ws, addr, value, keep_formula_if_none=True):
 def export_workbook(case_in: dict, template: Path | None = None) -> bytes:
     case = normalise(case_in)
     wb = load_workbook(template or TEMPLATE)
+    template_formulas = {(ws.title, c.coordinate) for ws in wb for row in ws.iter_rows() for c in row
+                         if c.data_type == "f"}
     cs, bl, al, be, co, rk = (wb[s] for s in ("01_Case_Setup", "03_Baseline", "04_AI_Alternatives",
                                               "05_Benefits", "06_Costs", "07_Risk"))
     for k, a in CASE_CELLS.items():
@@ -386,6 +388,12 @@ def export_workbook(case_in: dict, template: Path | None = None) -> bytes:
 
     # Monte Carlo results are not written: Excel's 12_MC_Results keeps its own run state, and the
     # Python engine (monte_carlo_engine.py) remains the way to populate it from the workbook.
+    # Case text starting with "=" must stay text: only the template's own formulas are formulas.
+    for ws in wb:
+        for row in ws.iter_rows():
+            for c in row:
+                if c.data_type == "f" and (ws.title, c.coordinate) not in template_formulas:
+                    c.data_type = "s"
     wb.calculation.fullCalcOnLoad = True
     buf = io.BytesIO()
     wb.save(buf)
