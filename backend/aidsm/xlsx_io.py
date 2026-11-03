@@ -272,7 +272,7 @@ def _put(ws, addr, value, keep_formula_if_none=True):
 def export_workbook(case_in: dict, template: Path | None = None) -> bytes:
     case = normalise(case_in)
     wb = load_workbook(template or TEMPLATE)
-    template_formulas = {(ws.title, c.coordinate) for ws in wb for row in ws.iter_rows() for c in row
+    template_formulas = {(ws.title, c.coordinate): c.value for ws in wb for row in ws.iter_rows() for c in row
                          if c.data_type == "f"}
     cs, bl, al, be, co, rk = (wb[s] for s in ("01_Case_Setup", "03_Baseline", "04_AI_Alternatives",
                                               "05_Benefits", "06_Costs", "07_Risk"))
@@ -392,7 +392,7 @@ def export_workbook(case_in: dict, template: Path | None = None) -> bytes:
     for ws in wb:
         for row in ws.iter_rows():
             for c in row:
-                if c.data_type == "f" and (ws.title, c.coordinate) not in template_formulas:
+                if c.data_type == "f" and template_formulas.get((ws.title, c.coordinate)) != c.value:
                     c.data_type = "s"
     wb.calculation.fullCalcOnLoad = True
     buf = io.BytesIO()
