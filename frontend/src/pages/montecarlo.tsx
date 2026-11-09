@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../api";
 import { CdfLine, Histogram } from "../components/charts";
 import { NumIn, Page, Section, SelIn, Status, Tech } from "../components/ui";
@@ -40,6 +40,11 @@ export function MonteCarlo() {
   const isPct = (u: string) => u === "%";
   const active = c.alternatives.filter((a: any) => a.active);
   const suggest = active.find((a: any) => a.id === c.dashboard.alternative) || active[0];
+  // Open on a switched-on option (Research Moderate AI when it is on), never a switched-off one.
+  useEffect(() => {
+    if (A?.active || !active.length) return;
+    set(["monte_carlo", "alternative"], (active.find((a: any) => a.id === "RES-MOD") || suggest).id);
+  }, []);
 
   const useResearchSet = () => {
     set(["monte_carlo", "inputs", alt], mc.inputs[alt].map((g: any, j: number) => {

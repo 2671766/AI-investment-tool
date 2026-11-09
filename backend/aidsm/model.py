@@ -74,7 +74,7 @@ def _alt_defaults(alt_id: str, index: int) -> dict:
 
 
 def _mc_defaults() -> dict:
-    return {"alternative": "CUS-01", "iterations": 25000, "seed": 2026,
+    return {"alternative": "RES-MOD", "iterations": 25000, "seed": 2026,
             "inputs": {aid: [{"variable": v, "enabled": "No", "distribution": "Triangular",
                               "min": None, "mode": None, "max": None, "sd": None}
                              for v, _, _ in MC_VARIABLES] for aid in ALT_IDS}}

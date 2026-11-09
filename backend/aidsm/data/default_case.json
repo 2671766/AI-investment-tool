@@ -1464,7 +1464,7 @@
   "alternative": "RES-MOD"
  },
  "monte_carlo": {
-  "alternative": "CUS-01",
+  "alternative": "RES-MOD",
   "iterations": 25000,
   "seed": 2026,
   "inputs": {
